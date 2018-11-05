@@ -9,7 +9,7 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class CalculatorTest {
 
-    private static final String givenStringNos = "1,2,3\n4,100,999,1010, 1005, 4001, 2003";
+    private static final String givenStringNos = "1,2,3\n4,100,999,1010,1005,4001,2003";
 
     private Calculator calculator;
 
@@ -32,5 +32,23 @@ public class CalculatorTest {
     public void calculatorIsPresent() throws Exception{
         Assert.assertNotNull(calculator);
     }
-    
+
+    @Test
+    public void sumOfGivenString() throws Exception{
+        Assert.assertEquals(1109, calculator.sumOfGivenString());
+    }
+
+    private String[] givenStringToArray() {
+        String formattingString = givenStringNos.replace("\n",",");
+        String[] finalString = formattingString.split(",");
+        return finalString;
+    }
+
+    private int convertStringToInt(String currentString) {
+        return Integer.parseInt(currentString);
+    }
+
+    private int compute(int previous, int current){
+        return previous = previous + current;
+    }
 }
