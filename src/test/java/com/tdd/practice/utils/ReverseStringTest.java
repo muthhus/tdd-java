@@ -1,5 +1,6 @@
 package com.tdd.practice.utils;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,7 +14,7 @@ public class ReverseStringTest {
     private static final String gnString = "World";
 
     @Rule
-    ExpectedException expectedException = ExpectedException.none();
+    public ExpectedException expectedException = ExpectedException.none();
 
     private ReverseString reverseString;
 
@@ -23,9 +24,19 @@ public class ReverseStringTest {
     }
 
     @Test
+    public void testReverseStringNotNull(){
+        Assert.assertNotNull(reverseString);
+    }
+
+    @Test
     public void testReverseStringException() {
-        expectedException.expect(RuntimeException.class);
         reverseString.convertString(gnString);
+        Assert.assertNotNull(gnString);
+    }
+
+    @Test
+    public void testGivenStringAndResult() {
+        Assert.assertEquals("dlroW", reverseString.convertString(gnString));
     }
 
 }
