@@ -8,7 +8,17 @@ public class ReverseString {
         String result = "";
         for(int i =input.length()-1; i >=0; i--){
             result = result + input.charAt(i);
+
         }
+        palindrome(input, result);
         return result;
+    }
+
+    public boolean palindrome(String input, String output){
+        if(input.equals(output)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

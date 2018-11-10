@@ -8,10 +8,14 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import static org.hamcrest.core.Is.is;
+
 @RunWith(JUnit4.class)
 public class ReverseStringTest {
 
     private static final String gnString = "World";
+
+    private static final String palindromeString = "liril";
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -37,6 +41,16 @@ public class ReverseStringTest {
     @Test
     public void testGivenStringAndResult() {
         Assert.assertEquals("dlroW", reverseString.convertString(gnString));
+    }
+
+    @Test
+    public void testIsthatGivenStringIsPalindrome(){
+        Assert.assertThat(reverseString.convertString(palindromeString), is(palindromeString));
+    }
+
+    @Test
+    public void testPalidrome(){
+        Assert.assertTrue(reverseString.palindrome(palindromeString, reverseString.convertString(palindromeString)));
     }
 
 }
