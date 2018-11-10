@@ -1,5 +1,6 @@
 package com.tdd.practice.service;
 
+import com.tdd.practice.service.dao.BookStoreDAO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
